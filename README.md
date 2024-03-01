@@ -6,7 +6,6 @@ RAG - Natural Language Processing Project for the COMS_579 in Spring 2024
 
 <br/>
 <br/>
-<br/>
 
 ### Contributors
 
