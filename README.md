@@ -2,7 +2,11 @@
 
 # NLP_COMS_579
 
-RAG - NLP Project COMS_579 Spring 2024
+RAG - Natural Language Processing Project for the COMS_579 in Spring 2024
+
+<br/>
+<br/>
+<br/>
 
 ### Contributors
 
