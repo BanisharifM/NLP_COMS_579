@@ -1,0 +1,30 @@
+[project]
+name = "vectara"
+version = "0.0.1"
+readme = "README.md"
+authors = [
+    { name = "Forrest Sheng Bao", email = "forrest@vectara.com" }
+]
+license = { file = "LICENSE" }
+description = "An unofficial Python SDK and CLI"
+requires-python = ">=3.10"
+dependencies = [
+    "markdown",
+    "bs4",
+    "textwrap3",
+    "requests",
+    "python-dotenv",
+    "tqdm",
+    "IPython",
+    "fire",
+]
+
+[build-system]
+requires = ["setuptools>=46.4.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+vectara = "vectara.__main__:main"
+
+[project.urls]
+homepage = "https://github.com/forrestbao/vectara-python-cli"
