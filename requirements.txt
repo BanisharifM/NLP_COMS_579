@@ -1,1 +1,4 @@
-weaviate-client==3.3.0
+weaviate-client>=4.0.0
+pyyaml==5.4.1
+
+
