@@ -33,12 +33,12 @@ def load_config(filepath):
 
 weaviate_url = os.getenv("WCS_CLUSTER_URL")
 weaviate_api_key = weaviate.auth.AuthApiKey(os.getenv("WCS_API_KEY"))
-openai_api_key=os.environ["OPENAI_APIKEY"]
+openai_api_key = os.environ["OPENAI_API_KEY"]
 
 client = weaviate.connect_to_wcs(
     cluster_url=weaviate_url,
     auth_credentials=weaviate_api_key,
-    headers={"X-OpenAI-Api-Key": openai_api_key },
+    headers={"X-OpenAI-Api-Key": openai_api_key},
 )
 
 print(client.is_ready())

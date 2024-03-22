@@ -17,5 +17,5 @@ EXPOSE 80
 ENV NAME World
 
 # Run app.py when the container launches
-# CMD ["python", "runner.py"]
-CMD ["python", "src/openai-test.py"]
+CMD ["python", "runner.py"]
+# CMD ["python", "src/openai-test.py"]
