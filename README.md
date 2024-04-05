@@ -4,6 +4,10 @@
 
 RAG - Natural Language Processing Project for the COMS_579 in Spring 2024
 
+
+This project demonstrates how to upload and index PDF files in a Weaviate vector database using LlamaIndex. The project includes a script (upload.py) that chunks the content of PDF files, embeds them using a pre-trained language model, and stores the resulting vectors in Weaviate.
+
+
 <br/>
 <br/>
 
