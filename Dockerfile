@@ -8,6 +8,7 @@ WORKDIR /src
 COPY . /src
 
 # Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir llama-index-vector-stores-weaviate==0.1.4
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Make port 80 available to the world outside this container
@@ -17,5 +18,5 @@ EXPOSE 80
 ENV NAME World
 
 # Run app.py when the container launches
-CMD ["python", "upload.py"]
+CMD ["python", "-W", "ignore", "upload.py", "--pdf_file=sam.pdf"]
 # CMD ["python", "src/openai-test.py"]
