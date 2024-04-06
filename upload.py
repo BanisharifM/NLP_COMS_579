@@ -18,8 +18,11 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 def load_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument("--pdf_file", type=str, required=True, help="pdf file path")
-    parser.add_argument("--chunk_size", type=int, default=500, help="chunk size")
-    parser.add_argument("--chunk_overlap", type=int, default=35, help="chunk overlap")
+    parser.add_argument("--chunk_size", type=int, default=250, help="chunk size")
+    parser.add_argument("--chunk_overlap", type=int, default=10, help="chunk overlap")
+    parser.add_argument(
+        "--model_name", type=str, default="BAAI/bge-small-en-v1.5", help="model name"
+    )
     args = parser.parse_args()
     return args
 
@@ -55,29 +58,34 @@ def clear_client(client):
 def read_pdf(path):
     loaded_pdf = PDFReader().load_data(Path(path))
     file_name = os.path.basename(path)
+    print("File successfully uploaded!")
     print(f"File {file_name}, has {len(loaded_pdf)} pages.")
     return loaded_pdf
 
 
 def chunk_file(loaded_file, chunk_size, chunk_overlap):
+    print(
+        f"Starting to chunk the file with chunk size: {chunk_size} and chunk overlap: {chunk_overlap}"
+    )
     file_parser = SimpleNodeParser.from_defaults(
         chunk_size=chunk_size, chunk_overlap=chunk_overlap
     )
     file_chunks = file_parser.get_nodes_from_documents(loaded_file)
+    print(f"File successfully chunked into {len(file_chunks)} chunks.")
     return file_chunks
 
 
-def embed_file(chunk_file, client):
+def embed_file(chunk_file, client, model):
+    print(f"Starting to embed the file using the {model} model.")
 
-    Settings.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
+    Settings.embed_model = HuggingFaceEmbedding(model_name=model)
 
     vector_store = WeaviateVectorStore(weaviate_client=client, index_name="TestIndex")
 
     storage_context = StorageContext.from_defaults(vector_store=vector_store)
     embedded_file = VectorStoreIndex(chunk_file, storage_context=storage_context)
 
-    print("File Successfully indexed & Weaviate Panel client is updated!")
-
+    print("File successfully embedded and stored in Weaviate.")
     return embedded_file
 
 
@@ -96,7 +104,7 @@ def main():
 
     chunked_file = chunk_file(loaded_file, args.chunk_size, args.chunk_overlap)
 
-    embed_file(chunked_file, client)
+    embed_file(chunked_file, client, args.model_name)
 
 
 if __name__ == "__main__":

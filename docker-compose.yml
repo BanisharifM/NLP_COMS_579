@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  rug-app:
+    build: .
+    environment:
+      - PDF_FILE=Documents/SAM.pdf
+    ports:
+      - "8080:8080"
