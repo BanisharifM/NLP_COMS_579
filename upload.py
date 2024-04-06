@@ -36,16 +36,26 @@ def create_client():
     # Connect to the Weaviate
     client = weaviate.Client(url=weaviate_url, auth_client_secret=weaviate_api_key)
 
+    # Check connection to Weaviate
+    if client.is_ready():
+        print("Client is successfully connected to Weaviate and ready to use.")
+    else:
+        print(
+            "Client is not ready. Please check the connection settings or environment."
+        )
+
     return client
 
 
 def clear_client(client):
     client.schema.delete_all()
-    print("Client is cleared!")
+    print("The Weaviate Client Cluster is cleared!")
 
 
 def read_pdf(path):
     loaded_pdf = PDFReader().load_data(Path(path))
+    file_name = os.path.basename(path)
+    print(f"File {file_name}, has {len(loaded_pdf)} pages.")
     return loaded_pdf
 
 
@@ -75,16 +85,14 @@ def main():
     # Load Arguments
     args = load_arguments()
 
+    # Connect to the Weaviate Cluster
     client = create_client()
 
+    # Clear the Weaviate Cluster
     clear_client(client)
 
-    # Check connection to the weaviate
-    print(client.is_ready())
-
-    # Load pdf file
+    # Read PDF File
     loaded_file = read_pdf(args.pdf_file)
-    print(f"number of pages: {len(loaded_file)}")
 
     chunked_file = chunk_file(loaded_file, args.chunk_size, args.chunk_overlap)
 
