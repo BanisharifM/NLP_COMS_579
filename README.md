@@ -32,7 +32,7 @@ PDF_FILE=Documents/SAM.pdf docker-compose up --build
 
 ## Demo 1 Video Link
 
-[Watch the Demo 1 Video](https://www.example.com/demo1)
+[Watch the Demo 1 Video](https://www.youtube.com/watch?v=EDFlHy-BuIw)
 
 
 <br/>
