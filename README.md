@@ -62,6 +62,10 @@ or
 python -W ignore  query.py --question="What is Mask ambiguity? write the answer in 10 words"
 ```
 
+## Demo 2 Video Link
+
+<a href="https://github.com/BanisharifM/NLP_COMS_579" target="_blank">Watch the Demo 2 Video</a>
+
 <br/>
 <br/>
 
