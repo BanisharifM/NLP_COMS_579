@@ -64,7 +64,7 @@ python -W ignore  query.py --question="What is Mask ambiguity? write the answer 
 
 ## Demo 2 Video Link
 
-<a href="https://github.com/BanisharifM/NLP_COMS_579" target="_blank">Watch the Demo 2 Video</a>
+<a href="https://www.youtube.com/watch?v=2Qbox0ks6fA/" target="_blank">Watch the Demo 2 Video</a>
 
 <br/>
 <br/>
