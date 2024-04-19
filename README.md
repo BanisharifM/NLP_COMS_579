@@ -34,6 +34,24 @@ PDF_FILE=Documents/SAM.pdf docker-compose up --build
 
 <a href="https://www.youtube.com/watch?v=EDFlHy-BuIw" target="_blank">Watch the Demo 1 Video</a>
 
+## Set up a virtual environment OpenAI
+Running the command below will create a virtual environment named "openai-env" inside the current folder you have selected in your terminal / command line:
+```bash
+python -m venv openai-env
+```
+
+Once you’ve created the virtual environment, you need to activate it. On Windows, run:
+
+```bash
+openai-env\Scripts\activate
+```
+
+On Unix or MacOS, run:
+```bash
+source openai-env/bin/activate
+```
+
+
 ## Running the Query
 To run the Query part and ask question, use the following command:
 ```bach
