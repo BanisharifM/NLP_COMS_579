@@ -34,7 +34,15 @@ PDF_FILE=Documents/SAM.pdf docker-compose up --build
 
 <a href="https://www.youtube.com/watch?v=EDFlHy-BuIw" target="_blank">Watch the Demo 1 Video</a>
 
-
+## Running the Query
+To run the Query part and ask question, use the following command:
+```bach
+python -W ignore  query.py --question="What is SAM?"
+```
+or
+```bash
+python -W ignore  query.py --question="What is Mask ambiguity? write the answer in 10 words"
+```
 
 <br/>
 <br/>
