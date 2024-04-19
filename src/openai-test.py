@@ -4,21 +4,34 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
+# openai_api_key = os.getenv("OPENAI_API_KEY")
 
-client = OpenAI(
-    api_key=openai_api_key,
-)
+client = OpenAI()
 
-stream = client.chat.completions.create(
+response = client.chat.completions.create(
     model="gpt-3.5-turbo",
-    messages=[{"role": "user", "content": "Say this is a test"}],
-    stream=True,
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Who won the world series in 2020?"},
+        {
+            "role": "assistant",
+            "content": "The Los Angeles Dodgers won the World Series in 2020.",
+        },
+        {"role": "user", "content": "Where was it played?"},
+    ],
 )
 
-for chunk in stream:
-    if chunk.choices[0].delta.content is not None:
-        print(chunk.choices[0].delta.content, end="")
+# print(client.is_ready())
+
+# stream = client.chat.completions.create(
+#     model="gpt-3.5-turbo",
+#     messages=[{"role": "user", "content": "Say this is a test"}],
+#     stream=True,
+# )
+
+# for chunk in stream:
+#     if chunk.choices[0].delta.content is not None:
+#         print(chunk.choices[0].delta.content, end="")
 
 # completion = client.chat.completions.create(
 #     model="gpt-3.5-turbo",

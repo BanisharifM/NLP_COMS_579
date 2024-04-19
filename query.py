@@ -122,7 +122,7 @@ def main():
     args = load_arguments()
 
     # Read PDF File
-    documents = load_data("Documents/SAM1.pdf")
+    documents = load_data("Documents/SAM.pdf")
 
     # Extract nodes from documents
     nodes = document_to_nodes(documents)
