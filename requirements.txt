@@ -10,3 +10,4 @@ llama-index-embeddings-openai==0.1.6
 llama-index-llms-openai==0.1.7
 openai
 sentence-transformers
+streamlit==1.33.0

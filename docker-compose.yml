@@ -5,4 +5,4 @@ services:
     environment:
       - PDF_FILE=Documents/SAM.pdf
     ports:
-      - "8080:8080"
+      - "8501:8501"

@@ -13,7 +13,7 @@ RUN python -m venv /openai-env && \
     /openai-env/bin/pip install --no-cache-dir -r requirements.txt
 
 # Make port 80 available to the world outside this container
-EXPOSE 8080
+EXPOSE 8501
 
 # Define environment variable
 ENV NAME World
@@ -22,4 +22,5 @@ ENV PATH="/openai-env/bin:$PATH"
 
 # Run app.py when the container launches
 # CMD python -W ignore upload.py --pdf_file=${PDF_FILE}
-CMD python -W ignore query.py
+#CMD python -W ignore query.py
+CMD ["streamlit", "run", "src/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
