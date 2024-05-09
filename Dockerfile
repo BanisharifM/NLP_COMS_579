@@ -12,6 +12,8 @@ RUN python -m venv /openai-env && \
     /openai-env/bin/pip install --upgrade pip && \
     /openai-env/bin/pip install --no-cache-dir -r requirements.txt
 
+# RUN pip install --no-cache-dir -r requirements.txt 
+
 # Make port 80 available to the world outside this container
 EXPOSE 8501
 
