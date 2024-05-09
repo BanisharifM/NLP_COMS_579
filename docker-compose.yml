@@ -3,6 +3,7 @@ services:
   rug-app:
     build: .
     environment:
+      # - PYTHONPATH=/src:/src/utils
       - PDF_FILE=Documents/SAM.pdf
     ports:
       - "8501:8501"

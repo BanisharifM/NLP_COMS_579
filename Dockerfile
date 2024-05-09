@@ -1,28 +1,25 @@
 # Use an official Python runtime as a parent image
 FROM python:3.8
 
-# Set the working directory in the container
+# Set the working directory in the container to /app
 WORKDIR /
 
-# Copy the current directory contents into the container at
+# Copy the current directory contents into the container at /app
 COPY . /
 
 # Create virtual environment and install dependencies
-RUN python -m venv /openai-env && \
-    /openai-env/bin/pip install --upgrade pip && \
-    /openai-env/bin/pip install --no-cache-dir -r requirements.txt
+# RUN python -m venv /openai-env && \
+#     /openai-env/bin/pip install --upgrade pip && \
+    # /openai-env/bin/pip install --no-cache-dir -r requirements.txt
 
-# RUN pip install --no-cache-dir -r requirements.txt 
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 80 available to the world outside this container
+# EXPOSE the port where Streamlit will run
 EXPOSE 8501
 
-# Define environment variable
-ENV NAME World
+# Update PATH environment variable to include the virtual environment
 ENV PATH="/openai-env/bin:$PATH"
 
-
-# Run app.py when the container launches
-# CMD python -W ignore upload.py --pdf_file=${PDF_FILE}
-#CMD python -W ignore query.py
+# Define command to run the application
 CMD ["streamlit", "run", "src/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
