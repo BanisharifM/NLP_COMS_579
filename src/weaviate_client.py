@@ -3,13 +3,17 @@ import os
 import weaviate
 
 from dotenv import load_dotenv
+import logging
 
 
 def create_client():
-    # Load environment variables from .env file
-    load_dotenv()
 
-    # Set the Environment
+    # logging.info(f"RUL:  {weaviate_url}")
+    # logging.info(f"API:  {weaviate_api_key}")
+    # Load environment variables from .env file
+    load_dotenv(override=True)
+
+    # # Set the Environment
     weaviate_url = os.getenv("WCS_CLUSTER_URL")
     weaviate_api_key = weaviate.auth.AuthApiKey(os.getenv("WCS_API_KEY"))
 
@@ -25,3 +29,4 @@ def create_client():
         )
 
     return client
+    # return 0
