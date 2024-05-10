@@ -13,6 +13,7 @@ def run():
     # Token information
     if st.button("Connect to Weaviate"):
         env_path = "/.env"
+        openai_api_key = os.getenv("OPENAI_API_KEY", "")
         with open(env_path, "r") as file:
             lines = file.readlines()
 
@@ -23,9 +24,7 @@ def run():
                 elif line.startswith("WCS_API_KEY"):
                     file.write(f"WCS_API_KEY='{weaviate_api_key}'\n")
                 elif line.startswith("OPENAI_API_KEY"):
-                    file.write(
-                        f"WCS_API_KEY='sk-proj-minvC1eLAqg47COAkrCWT3BlbkFJ73QYcQnoCK8lZNiRp6th'\n"
-                    )
+                    file.write(f"OPENAI_API_KEY='{openai_api_key}'\n")
                 else:
                     file.write(line)
 
