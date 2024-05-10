@@ -8,11 +8,12 @@ WORKDIR /
 COPY . /
 
 # Create virtual environment and install dependencies
-# RUN python -m venv /openai-env && \
-#     /openai-env/bin/pip install --upgrade pip && \
-    # /openai-env/bin/pip install --no-cache-dir -r requirements.txt
+RUN python -m venv /openai-env && \
+    /openai-env/bin/pip install --upgrade pip && \
+    /openai-env/bin/pip install --no-cache-dir -r requirements.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
+RUN source openai-env/bin/activate
 
 # EXPOSE the port where Streamlit will run
 EXPOSE 8501
