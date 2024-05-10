@@ -31,7 +31,7 @@ RUN python -m venv /openai-env && \
 EXPOSE 8501
 
 # Update PATH environment variable to include the virtual environment
-# ENV PATH="/openai-env/bin:$PATH"
+ENV PATH="/openai-env/bin:$PATH"
 
 # Define command to run the application
 CMD ["streamlit", "run", "src/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
