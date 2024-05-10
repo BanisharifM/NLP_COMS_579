@@ -15,11 +15,11 @@ def load_index(filename="index.pkl"):
 
 # Example usage in your query function
 def run():
-    st.subheader("Let's have a query on your PDF file")
+    st.subheader("Let's have a query on your PDF fil!")
     question = st.text_area("Ask your question", "")
 
     similarity_top_k = st.number_input("Top K", step=1, format="%d", value=5)
-    answer_word_number = st.number_input("Answer length", step=1, format="%d", value=10)
+    answer_word_number = st.slider("Alex", value=15)
 
     index = load_index()
     if not index:
