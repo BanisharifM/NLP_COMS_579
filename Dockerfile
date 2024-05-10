@@ -7,6 +7,8 @@ WORKDIR /
 # Copy the current directory contents into the container at /app
 COPY . /
 
+COPY requirements.txt ./
+
 # Create virtual environment and install dependencies
 # RUN python -m venv /openai-env && \
 #     /openai-env/bin/pip install --upgrade pip && \
