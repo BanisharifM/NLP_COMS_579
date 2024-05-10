@@ -21,6 +21,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # SHELL ["/bin/bash", "-c"]
 # RUN source /openai-env/bin/activate
 
+# Accept OPENAI_API_KEY as a build argument
+ARG OPENAI_API_KEY
+
+# Set the OPENAI_API_KEY as an environment variable
+ENV OPENAI_API_KEY=${OPENAI_API_KEY}
+
 # EXPOSE the port where Streamlit will run
 EXPOSE 8501
 
