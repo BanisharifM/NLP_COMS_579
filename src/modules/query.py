@@ -19,7 +19,7 @@ def run():
     question = st.text_area("Ask your question", "")
 
     similarity_top_k = st.number_input("Top K", step=1, format="%d", value=5)
-    answer_word_number = st.slider("Alex", value=15)
+    answer_word_number = st.slider("Answer length", value=15)
 
     index = load_index()
     if not index:
