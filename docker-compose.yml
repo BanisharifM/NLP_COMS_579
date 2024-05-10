@@ -4,6 +4,6 @@ services:
     build: .
     environment:
       # - PYTHONPATH=/src:/src/utils
-      - PDF_FILE=Documents/SAM.pdf
+      - PDF_FILE=Documents/SAM1.pdf
     ports:
       - "8501:8501"

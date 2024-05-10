@@ -3,8 +3,11 @@ from llama_index.llms.openai import OpenAI
 from llama_index.core.settings import Settings
 from llama_index.core import SimpleDirectoryReader
 from llama_index.core.node_parser import SentenceWindowNodeParser
+import weaviate
+from dotenv import load_dotenv
+import os
 import argparse
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from llama_index.core import VectorStoreIndex, StorageContext
 from llama_index.vector_stores.weaviate import WeaviateVectorStore
 import json
@@ -59,6 +62,29 @@ def vector_index(index_name, client, nodes):
     return index
 
 
+def create_client():
+
+    # Load environment variables from .env file
+    load_dotenv()
+
+    # Set the Environment
+    weaviate_url = os.getenv("WCS_CLUSTER_URL")
+    weaviate_api_key = weaviate.auth.AuthApiKey(os.getenv("WCS_API_KEY"))
+
+    # Connect to the Weaviate
+    client = weaviate.Client(url=weaviate_url, auth_client_secret=weaviate_api_key)
+
+    # Check connection to Weaviate
+    if client.is_ready():
+        print("Client is successfully connected to Weaviate and ready to use.")
+    else:
+        print(
+            "Client is not ready. Please check the connection settings or environment."
+        )
+
+    return client
+
+
 def load_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -96,7 +122,7 @@ def main():
     args = load_arguments()
 
     # Read PDF File
-    documents = load_data("Documents/SAM.pdf")
+    documents = load_data("Documents/SAM1.pdf")
 
     # Extract nodes from documents
     nodes = document_to_nodes(documents)
