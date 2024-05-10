@@ -2,9 +2,19 @@
 
 from llama_index.core.postprocessor import MetadataReplacementPostProcessor
 from llama_index.core.postprocessor import SentenceTransformerRerank
+from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.llms.openai import OpenAI
+from llama_index.core.settings import Settings
+import logging
+
+Settings.llm = OpenAI(model="gpt-3.5-turbo", temperature=0.1)
+Settings.embed_model = OpenAIEmbedding()
+
+# Configure logging
+logging.basicConfig(level=logging.ERROR)
 
 
-def query(question_text, index):
+def query(question_text, index, similarity_top_k,answer_word_number):
     # The target key defaults to `window` to match the node_parser's default
     postproc = MetadataReplacementPostProcessor(target_metadata_key="window")
 
@@ -22,5 +32,7 @@ def query(question_text, index):
     )
 
     # Use your Default RAG
+    # if answer_word_number:
+    #     question_text+= f" Answer it in {answer_word_number} words."
     response = query_engine.query(question_text)
     return response

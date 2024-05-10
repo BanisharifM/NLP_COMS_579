@@ -7,9 +7,13 @@ from save_file import save_file
 from weaviate_client import create_client
 from vector_index import vector_index
 import os
+import pickle
 
-# from weaviate_client import create_client
-# import os
+
+# Function to save index
+def save_index(index, filename="index.pkl"):
+    with open(filename, "wb") as f:
+        pickle.dump(index, f)
 
 
 def run():
@@ -44,7 +48,10 @@ def run():
 
             index = vector_index(index_name, client, nodes)
 
-            st.write(index)
+            # Save the index
+            if index:
+                save_index(index)
+                st.success("File uploaded successfully!")
 
             # Clean up the temporary file if no longer needed
             os.unlink(tmp_file_path)

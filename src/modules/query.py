@@ -1,10 +1,30 @@
 # src/modules/query.py
 import streamlit as st
 from file_query import query
+import pickle
 
 
+# Function to load index
+def load_index(filename="index.pkl"):
+    try:
+        with open(filename, "rb") as f:
+            return pickle.load(f)
+    except FileNotFoundError:
+        return None
+
+
+# Example usage in your query function
 def run():
-    st.subheader("Have Query Here!")
+    st.subheader("Let's have a query on your PDF file")
+    question = st.text_area("Ask your question", "")
 
-    question = st.text_input("Type your question", "")
-    response = query(question, index)
+    similarity_top_k = st.number_input("Top K", step=1, format="%d", value=5)
+    answer_word_number = st.number_input("Answer length", step=1, format="%d", value=10)
+
+    index = load_index()
+    if not index:
+        st.error("Index not found. Please upload and process a file first.")
+        return
+    if st.button("Answer it"):
+        response = query(question, index, similarity_top_k, answer_word_number)
+        st.write(response)
