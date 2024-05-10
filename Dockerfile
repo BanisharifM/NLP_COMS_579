@@ -10,11 +10,11 @@ COPY . /
 COPY requirements.txt ./
 
 # Create virtual environment and install dependencies
-# RUN python -m venv /openai-env && \
-#     /openai-env/bin/pip install --upgrade pip && \
-#     /openai-env/bin/pip install --no-cache-dir -r requirements.txt
+RUN python -m venv /openai-env && \
+    /openai-env/bin/pip install --upgrade pip && \
+    /openai-env/bin/pip install --no-cache-dir -r requirements.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
 
 # Use bash to source the virtual environment
 # Note: RUN commands are not affected by sourcing in previous layers
