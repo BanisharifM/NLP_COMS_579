@@ -22,6 +22,10 @@ def run():
                     file.write(f"WCS_CLUSTER_URL='{weaviate_url}'\n")
                 elif line.startswith("WCS_API_KEY"):
                     file.write(f"WCS_API_KEY='{weaviate_api_key}'\n")
+                elif line.startswith("OPENAI_API_KEY"):
+                    file.write(
+                        f"WCS_API_KEY='sk-proj-minvC1eLAqg47COAkrCWT3BlbkFJ73QYcQnoCK8lZNiRp6th'\n"
+                    )
                 else:
                     file.write(line)
 
