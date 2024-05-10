@@ -25,13 +25,13 @@ jobs:
         push: true
         tags: yourusername/yourapp:latest
 
-    - name: Copy Docker Compose file to Server
+    - name: Copy project files to Server
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.SERVER_IP }}
         username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY | base64 -d }}
-        source: "./docker-compose.yml"
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: "./*,./src/*,./src/modules/*,./src/utils/*"
         target: "/path/to/server"
 
     - name: Deploy to Server
@@ -39,8 +39,9 @@ jobs:
       with:
         host: ${{ secrets.SERVER_IP }}
         username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY | base64 -d }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          docker-compose -f /path/to/server/docker-compose.yml down
-          docker-compose -f /path/to/server/docker-compose.yml up -d
+          cd /path/to/server
+          docker-compose down
+          docker-compose up -d
 
