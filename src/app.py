@@ -20,13 +20,13 @@ import os
 
 
 def main():
-    st.title("Initialize RAG App")
+    st.title("Initialize Weaviate")
 
     # Sidebar for input
     with st.sidebar:
         st.header("Functions / Pages")
         st.markdown("* Initialize Weaviate")
-        st.markdown("* Initialize Lama")
+        st.markdown("* Initialize Llama")
         st.markdown("* Create corpus")
         st.markdown("* Reset corpus")
         st.markdown("* Upload file")
@@ -59,11 +59,11 @@ def main():
 
         st.info("Environment variables updated successfully!")
         client = create_client()
-        if client.is_ready():
+        if client and client.is_ready():
             st.success("Client is successfully connected to Weaviate and ready to use.")
         else:
             st.error(
-                "Client is not ready. Please check the connection settings or environment."
+                "Failed to connect to Weaviate. Please check the connection settings or ensure the API key is valid."
             )
 
 
