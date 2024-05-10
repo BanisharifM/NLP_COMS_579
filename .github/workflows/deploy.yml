@@ -30,7 +30,9 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:latest
-
+        build-args: |
+          OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+          
     - name: Copy project files to Server
       uses: appleboy/scp-action@master
       with:
