@@ -1,4 +1,4 @@
-# src/pages/initialize_weaviate.py
+# src/modules/initialize_weaviate.py
 
 import streamlit as st
 from weaviate_client import create_client
@@ -12,7 +12,7 @@ def run():
 
     # Token information
     if st.button("Connect to Weaviate"):
-        env_path = os.path.join(os.path.dirname(__file__), "../..", ".env")
+        env_path = "/.env"
         with open(env_path, "r") as file:
             lines = file.readlines()
 
