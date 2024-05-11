@@ -6,7 +6,7 @@ import os
 
 
 def run():
-    st.subheader("Weaviate Client Credentials")
+    st.subheader("Weaviate Client Credentials_testt")
     weaviate_url = st.text_input("Weaviate Cluster URL", "")
     weaviate_api_key = st.text_input("Weaviate API keys", "", type="password")
 
