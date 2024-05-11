@@ -10,6 +10,10 @@ This project demonstrates how to upload and index PDF files in a Weaviate vector
 
 <br/>
 
+## Final Video Link
+
+<a href="https://www.youtube.com/watch?v=6wr_hAHiYNs" target="_blank">RAG System User Interface</a>
+
 ## Setup
 1. Copy the `.env.example` file to a new file named `.env`.
 2. Fill in the `WCS_CLUSTER_URL` and `WCS_API_KEY` values in the `.env` file with your own Weaviate cluster URL and API key.
