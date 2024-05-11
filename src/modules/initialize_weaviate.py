@@ -6,13 +6,13 @@ import os
 
 
 def run():
-    st.subheader("Weaviate Client Credentials_testt")
+    st.subheader("Weaviate Client Credentials")
     weaviate_url = st.text_input("Weaviate Cluster URL", "")
     weaviate_api_key = st.text_input("Weaviate API keys", "", type="password")
 
     # Token information
     if st.button("Connect to Weaviate"):
-        env_path = "/.env"
+        env_path = ".env"
         openai_api_key = os.getenv("OPENAI_API_KEY", "")
         with open(env_path, "r") as file:
             lines = file.readlines()
@@ -23,8 +23,6 @@ def run():
                     file.write(f"WCS_CLUSTER_URL='{weaviate_url}'\n")
                 elif line.startswith("WCS_API_KEY"):
                     file.write(f"WCS_API_KEY='{weaviate_api_key}'\n")
-                elif line.startswith("OPENAI_API_KEY"):
-                    file.write(f"OPENAI_API_KEY='{openai_api_key}'\n")
                 else:
                     file.write(line)
 

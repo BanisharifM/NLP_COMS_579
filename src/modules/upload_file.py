@@ -8,6 +8,7 @@ from weaviate_client import create_client
 from vector_index import vector_index
 import os
 import pickle
+import globals
 
 
 # Function to save index
@@ -50,7 +51,7 @@ def run():
 
             # Save the index
             if index:
-                save_index(index)
+                globals.index = index
                 st.success("File uploaded successfully!")
 
             # Clean up the temporary file if no longer needed
