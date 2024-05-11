@@ -27,6 +27,9 @@ ARG OPENAI_API_KEY
 # Set the OPENAI_API_KEY as an environment variable
 ENV OPENAI_API_KEY=${OPENAI_API_KEY}
 
+RUN python -m venv openai-env
+RUN openai-env\Scripts\activate
+
 # EXPOSE the port where Streamlit will run
 EXPOSE 8501
 
