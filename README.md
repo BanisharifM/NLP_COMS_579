@@ -15,25 +15,29 @@ This project demonstrates how to upload and index PDF files in a Weaviate vector
 <a href="https://www.youtube.com/watch?v=6wr_hAHiYNs" target="_blank">RAG System User Interface</a>
 
 ## Dockerization of the Project
-The initial step involved containerizing the project using Docker to ensure consistency across different development and production environments.![image](https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/8b6444dd-2ced-49bd-97a6-cc2d055b12d1)
-<img width="408" alt="image" src="https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/54f32606-045d-45f7-8ec5-2ed4443df5d8">
+The initial step involved containerizing the project using Docker to ensure consistency across different development and production environments.
 
-## erver Acquisition and Deployment
+<img width="416" alt="image" src="https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/0dbd709a-f6b9-4359-9848-b8f6c11b45c9">
+<img width="408" alt="image" src="https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/0f28a51a-3af6-4120-b73d-d636b0658fcd">
+
+
+## Server Acquisition and Deployment
   - Purchased a Ubuntu VPS (Virtual Private Server).
   - Deployed the Dockerized project on this server for testing and production.
-![image](https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/bd7961ae-f933-453e-ad23-34ad5df449b8)
+<img width="468" alt="image" src="https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/ced8e6a9-4c14-4289-85f7-bddaecabb1fa">
+
 
 ## CI/CD Integration
   - Set up Continuous Integration and Continuous Deployment (CI/CD) pipelines on GitHub.
   - Configured automated deployments to streamline development workflows and enhance deployment efficiency.
 
-![image](https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/80fa774a-a96e-46e8-b85d-480bc3585e72)
-![image](https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/02b33119-248e-485f-b81d-393793ca1e26)
+<img width="468" alt="image" src="https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/f02124f5-4b84-44c1-a7de-824715138796">
+<img width="468" alt="image" src="https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/2a0cb538-995d-4ee3-91db-c41fc78b0364">
 
 ## Docker Hub Integration
   - Created a new repository on Docker Hub to store Docker images.
   - Linked this repository to our VPS using secret variables in GitHub, which included Docker Hub credentials (username, password) and URL.
-![image](https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/b05d8290-624e-48e1-ae2d-c75f9148057a)
+<img width="468" alt="image" src="https://github.com/BanisharifM/NLP_COMS_579/assets/155206906/9d26c6f7-994d-489a-bc96-c1cde303b7cd">
 
 ## Security and Access Configuration
   - Configured additional repository secrets on GitHub to establish a secure SSH connection to the VPS, enabling safe access and management of the server directly from GitHub workflows.
