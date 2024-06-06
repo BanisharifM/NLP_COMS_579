@@ -122,12 +122,5 @@ python -W ignore  query.py --question="What is Mask ambiguity? write the answer 
             <sub style="font-size:14px"><b>Sadegh Jafari</b></sub>
         </a>
     </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/Ali-Deris>
-            <img src=https://avatars.githubusercontent.com/u/161876358?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Ali_Adibifar/>
-            <br />
-            <sub style="font-size:14px"><b>Ali Adibifar</b></sub>
-        </a>
-    </td>
 </tr>
 </table>
