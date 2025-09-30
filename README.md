@@ -12,12 +12,9 @@ This project demonstrates how to upload and index PDF files in a Weaviate vector
 
 ## Final Video Link
 
-<a href="https://www.youtube.com/watch?v=6wr_hAHiYNs" target="_blank">RAG System User Interface</a>
-
-## Final Video Link
-
 [![RAG System User Interface](https://img.youtube.com/vi/6wr_hAHiYNs/maxresdefault.jpg)](https://www.youtube.com/watch?v=6wr_hAHiYNs)
 
+[![RAG System User Interface](https://img.youtube.com/vi/6wr_hAHiYNs/0.jpg)](https://www.youtube.com/watch?v=6wr_hAHiYNs "RAG System User Interface")
 
 ## Dockerization of the Project
 The initial step involved containerizing the project using Docker to ensure consistency across different development and production environments.
