@@ -12,8 +12,6 @@ This project demonstrates how to upload and index PDF files in a Weaviate vector
 
 ## Final Video Link
 
-[![RAG System User Interface](https://img.youtube.com/vi/6wr_hAHiYNs/maxresdefault.jpg)](https://www.youtube.com/watch?v=6wr_hAHiYNs)
-
 [![RAG System User Interface](https://img.youtube.com/vi/6wr_hAHiYNs/0.jpg)](https://www.youtube.com/watch?v=6wr_hAHiYNs "RAG System User Interface")
 
 ## Dockerization of the Project
@@ -69,7 +67,7 @@ PDF_FILE=Documents/SAM.pdf docker-compose up --build
 
 ## Demo 1 Video Link
 
-<a href="https://www.youtube.com/watch?v=EDFlHy-BuIw" target="_blank">Watch the Demo 1 Video</a>
+[![Demo 1 Video](https://img.youtube.com/vi/EDFlHy-BuIw/0.jpg)](https://www.youtube.com/watch?v=EDFlHy-BuIw "Demo 1 - Upload and Index PDF Files - Click to Watch")
 
 ## Set up a virtual environment OpenAI
 Running the command below will create a virtual environment named "openai-env" inside the current folder you have selected in your terminal / command line:
@@ -101,7 +99,7 @@ python -W ignore  query.py --question="What is Mask ambiguity? write the answer 
 
 ## Demo 2 Video Link
 
-<a href="https://www.youtube.com/watch?v=2Qbox0ks6fA/" target="_blank">Watch the Demo 2 Video</a>
+[![Demo 2 Video](https://img.youtube.com/vi/2Qbox0ks6fA/0.jpg)](https://www.youtube.com/watch?v=2Qbox0ks6fA "Demo 2 - Query System - Click to Watch")
 
 <br/>
 <br/>
